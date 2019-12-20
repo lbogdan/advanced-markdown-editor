@@ -15,6 +15,9 @@ module.exports = {
   parserOptions: {
     parser: '@typescript-eslint/parser',
   },
+  ignorePatterns: [
+    'dist/',
+  ],
   overrides: [
     {
       files: [
