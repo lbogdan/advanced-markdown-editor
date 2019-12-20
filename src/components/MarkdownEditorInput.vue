@@ -36,7 +36,7 @@ export default class MarkdownEditorInput extends Vue {
   };
 
   $refs!: {
-    monacoEditor: MonacoEditor;
+    monacoEditor: typeof MonacoEditor;
   }
 
   get rawContent(): string {
