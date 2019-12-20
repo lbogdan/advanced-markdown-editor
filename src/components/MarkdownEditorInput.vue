@@ -18,7 +18,8 @@ import Component from 'vue-class-component';
 import { Watch } from 'vue-property-decorator';
 // eslint-disable-next-line no-unused-vars
 import monaco from 'monaco-editor';
-import MonacoEditor from 'vue-monaco';
+
+const MonacoEditor = require('vue-monaco');
 
 @Component({
   components: {
@@ -26,7 +27,7 @@ import MonacoEditor from 'vue-monaco';
   },
 })
 export default class MarkdownEditorInput extends Vue {
-  monacoEditor: monaco.editor.ICodeEditor;
+  monacoEditor: monaco.editor.ICodeEditor | null = null;
 
   monacoEditorOptions: monaco.editor.IEditorConstructionOptions = {
     language: 'markdown',
@@ -52,6 +53,9 @@ export default class MarkdownEditorInput extends Vue {
 
   @Watch('editorScroll')
   onEditorScrollChanged(): void {
+    if (this.monacoEditor === null) {
+      return;
+    }
     this.monacoEditor.setScrollTop(this.editorScroll);
   }
 
@@ -59,8 +63,11 @@ export default class MarkdownEditorInput extends Vue {
     const { monacoEditor } = this.$refs;
     this.monacoEditor = monacoEditor.getEditor();
     this.$store.commit('updateMonacoEditor', monacoEditor);
-    this.monacoEditor.onDidScrollChange(() => {
-      this.$store.commit('updateEditorScroll', this.monacoEditor.getScrollTop());
+    if (this.monacoEditor === null) {
+      return;
+    }
+    this.monacoEditor.onDidScrollChange((): void => {
+      this.$store.commit('updateEditorScroll', this.monacoEditor?.getScrollTop());
     });
   }
 }

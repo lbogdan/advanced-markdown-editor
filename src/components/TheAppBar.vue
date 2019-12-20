@@ -184,13 +184,17 @@ import Component from 'vue-class-component';
 import { Watch } from 'vue-property-decorator';
 import FileSaver from 'file-saver';
 
+interface FileWithText extends File {
+  text(): string;
+}
+
 @Component
 export default class TheAppBar extends Vue {
   uploadDialog: boolean = false;
 
   isUploadFormValid: boolean = false;
 
-  uploadedFile: File;
+  uploadedFile: FileWithText | null = null;
 
   uploadRules = [(v: File) => !!v || 'Markdown File is required'];
 
@@ -247,7 +251,7 @@ export default class TheAppBar extends Vue {
 
   async uploadFile(): Promise<void> {
     this.uploadDialog = false;
-    const fileContent = await this.uploadedFile.text();
+    const fileContent = await this.uploadedFile?.text();
     this.$store.commit('updateRawContent', fileContent);
   }
 
