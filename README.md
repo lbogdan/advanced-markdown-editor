@@ -1,34 +1,16 @@
 # advanced-markdown-editor
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f81b12d5-d8b7-423b-85fa-1119d176c1ac/deploy-status)](https://app.netlify.com/sites/advanced-markdown-editor/deploys)
 
-## Project setup
-```
-npm install
-```
+## Features
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+* Advanced Markdown Editor
+* Markdown Preview
+* Toolbar for inserting Markdown Elements
+* Upload / Download Files
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Technical Details
 
-### Run your unit tests
-```
-npm run test:unit
-```
-
-### Run your end-to-end tests
-```
-npm run test:e2e
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+* The Website is built using [Vue.js](https://vuejs.org/) and [Vuetify](https://vuetifyjs.com/en/)
+* The Website is deployed on [Netlify](https://www.netlify.com/)
+* The Editor uses the [Monaco Editor](https://microsoft.github.io/monaco-editor/index.html)
+* The Markdown Content is rendered by [markdown-it](https://github.com/markdown-it/markdown-it)
