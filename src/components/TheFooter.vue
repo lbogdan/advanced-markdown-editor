@@ -18,7 +18,7 @@
       Released under the
       <a
         class="white--text"
-        href="https://github.com/paul-soporan/advanced-markdown-editor/blob/master/LICENSE.md"
+        href="https://github.com/paul-soporan/advanced-markdown-editor/blob/master/LICENSE"
       >
         <strong>MIT License</strong>
       </a>
