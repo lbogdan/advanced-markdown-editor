@@ -19,7 +19,7 @@ import { Watch } from 'vue-property-decorator';
 // eslint-disable-next-line no-unused-vars
 import monaco from 'monaco-editor';
 
-const MonacoEditor = require('vue-monaco');
+const MonacoEditor = require('vue-monaco').default;
 
 @Component({
   components: {
