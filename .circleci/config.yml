@@ -83,7 +83,7 @@ jobs:
           at: dist
       - run:
           name: Netlify Deploy
-          command: npx netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_ACCESS_TOKEN --prod --dir=dist
+          command: npx netlify-cli deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_ACCESS_TOKEN --prod --dir=dist
   deploy_branch:
     docker:
       - image: circleci/node:latest
@@ -96,10 +96,10 @@ jobs:
           at: dist
       - run:
           name: Netlify Deploy
-          command: npx netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_ACCESS_TOKEN --dir=dist
+          command: npx netlify-cli deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_ACCESS_TOKEN --dir=dist
 workflows:
   version: 2
-  master:
+  build:
     jobs:
       - build
       - test_unit
@@ -111,11 +111,6 @@ workflows:
             branches:
               only:
                 - master
-  branch:
-    jobs:
-      - build
-      - test_unit
-      - lint
       - deploy_branch:
           requires:
             - build
