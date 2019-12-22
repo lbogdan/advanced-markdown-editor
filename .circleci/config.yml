@@ -38,8 +38,15 @@ jobs:
           paths:
             - ./node_modules
       - run:
-          name: Unit Testing
-          command: npm run test:unit
+          name: Install JUnit Coverage Reporter
+          command: npm install -D jest-junit
+      - run:
+          name: Run Unit Tests with JUnit as Reporter
+          command: npm run test:unit -- --ci --runInBand --reporters=default --reporters=jest-junit
+          environment:
+            JEST_JUNIT_OUTPUT_DIR: "reports/junit/js-test-results.xml"
+      - store_test_results:
+          path: reports/junit
   lint:
     docker:
       - image: circleci/node:latest
