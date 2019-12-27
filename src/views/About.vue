@@ -18,6 +18,7 @@
             <li>Markdown Preview</li>
             <li>Toolbar for inserting Markdown Elements</li>
             <li>Upload / Download Files</li>
+            <li>Highly Configurable Parser</li>
           </ul>
           <h3>Technical Details</h3>
           <ul>

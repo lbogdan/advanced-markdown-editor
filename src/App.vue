@@ -27,6 +27,9 @@ import TheFooter from '@/components/TheFooter.vue';
   },
 })
 export default class App extends Vue {
+  beforeCreate() {
+    this.$store.commit('initializeSettings');
+  }
 }
 
 </script>

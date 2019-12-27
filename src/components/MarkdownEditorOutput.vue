@@ -1,10 +1,11 @@
 <template>
-  <!-- renderedContent is sanitized by markdown-it -->
+  <!-- renderedContent is sanitized -->
   <!-- eslint-disable vue/no-v-html -->
   <div
     id="markdown-editor-output"
     ref="markdownEditorOutput"
     v-scroll:#markdown-editor-output="onOutputScroll"
+    class="overflow-auto"
     v-html="renderedContent"
   />
   <!-- eslint-enable -->
@@ -20,19 +21,28 @@ import MarkdownIt from 'markdown-it';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/github.css';
 
-const md = new MarkdownIt({
-  breaks: true,
-  highlight: (str, lang) => {
-    if (lang && hljs.getLanguage(lang)) {
-      try {
-        return hljs.highlight(lang, str).value;
-      } catch {
-        return '';
-      }
+const highlight = (str: string, lang: string): string => {
+  if (lang && hljs.getLanguage(lang)) {
+    try {
+      return hljs.highlight(lang, str).value;
+    } catch {
+      return '';
     }
-    return '';
-  },
-});
+  }
+  return '';
+};
+
+/**
+ * Similar to GFM Sanitizing:
+ * https://github.github.com/gfm/#disallowed-raw-html-extension-
+ *
+ * RegExr:
+ * https://regexr.com/4rces
+ */
+const sanitize = (html: string) => html.replace(
+  /<(?=\/?(?:title|textarea|style|xmp|iframe|noembed|noframes|script|plaintext)>)/giu,
+  '&lt;',
+);
 
 @Component
 export default class MarkdownEditorOutput extends Vue {
@@ -40,8 +50,20 @@ export default class MarkdownEditorOutput extends Vue {
     markdownEditorOutput: HTMLElement;
   }
 
+  get md() {
+    return new MarkdownIt(
+      this.$store.state.settings.parser.base,
+      {
+        ...this.$store.state.settings.parser.options,
+        highlight,
+      },
+    );
+  }
+
   get renderedContent(): string {
-    return md.render(this.$store.state.rawContent);
+    return sanitize(
+      this.md.render(this.$store.state.rawContent),
+    );
   }
 
   get editorScroll(): number {
@@ -67,7 +89,6 @@ export default class MarkdownEditorOutput extends Vue {
 #markdown-editor-output {
   height: 19em;
   padding: 0.5em;
-  overflow: auto;
   overflow-wrap: break-word;
   background: #1e1e1e;
 }

@@ -447,7 +447,9 @@ export default class MarkdownEditorToolbar extends Vue {
     const names: string[] = Object.keys(languages);
     const aliases: string[] = Object.values(languages)
       .map(((language: any, index) => language?.aliases?.[0] ?? names[index].toLowerCase()));
-    const entries = new Map(names.map((name, index) => [name, aliases[index]]));
+    const entries = new Map(
+      names.map((name, index) => [name, aliases[index]]),
+    );
     entries.forEach((alias, language) => {
       this.languages.push({
         text: language,

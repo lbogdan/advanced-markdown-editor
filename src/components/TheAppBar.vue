@@ -162,17 +162,13 @@
     </v-toolbar-title>
     <div v-if="currentRouteName === 'home'">
       <v-btn
-        v-for="n in 3"
+        v-for="n in 2"
         :key="n"
         style="visibility: hidden;"
         icon
       />
     </div>
-    <v-btn
-      v-if="currentRouteName === 'about'"
-      style="visibility: hidden;"
-      icon
-    />
+    <TheSettingsDialog />
   </v-app-bar>
 </template>
 
@@ -184,11 +180,17 @@ import Component from 'vue-class-component';
 import { Watch } from 'vue-property-decorator';
 import FileSaver from 'file-saver';
 
+import TheSettingsDialog from '@/components/TheSettingsDialog.vue';
+
 interface FileWithText extends File {
   text(): string;
 }
 
-@Component
+@Component({
+  components: {
+    TheSettingsDialog,
+  },
+})
 export default class TheAppBar extends Vue {
   uploadDialog: boolean = false;
 
