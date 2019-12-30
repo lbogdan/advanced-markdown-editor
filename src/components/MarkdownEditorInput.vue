@@ -29,7 +29,7 @@ const MonacoEditor = require('vue-monaco').default;
 export default class MarkdownEditorInput extends Vue {
   monacoEditor: monaco.editor.ICodeEditor | null = null;
 
-  monacoEditorOptions: monaco.editor.IEditorConstructionOptions = {
+  monacoEditorOptions: monaco.editor.IStandaloneEditorConstructionOptions = {
     language: 'markdown',
     scrollBeyondLastLine: false,
     wordWrap: 'on',
