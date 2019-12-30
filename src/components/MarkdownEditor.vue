@@ -3,10 +3,16 @@
     <MarkdownEditorToolbar />
     <v-container class="v-footer--padless">
       <v-row>
-        <v-col class="px-10 py-1">
+        <v-col
+          class="px-10 py-1"
+          cols="6"
+        >
           <MarkdownEditorInput />
         </v-col>
-        <v-col class="px-10 py-1">
+        <v-col
+          class="px-10 py-1"
+          cols="6"
+        >
           <MarkdownEditorOutput />
         </v-col>
       </v-row>
