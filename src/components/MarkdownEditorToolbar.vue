@@ -369,7 +369,6 @@ import Component from 'vue-class-component';
 import { Watch } from 'vue-property-decorator';
 // eslint-disable-next-line no-unused-vars
 import monaco from 'monaco-editor';
-import rp from 'request-promise';
 import yaml from 'js-yaml';
 
 @Component
@@ -410,7 +409,7 @@ export default class MarkdownEditorToolbar extends Vue {
     value: 'none',
   }];
 
-  codeBlockLanguage: string = '';
+  codeBlockLanguage: string = 'none';
 
   codeTypeRules = [(v: string) => !!v || 'Code Type is required'];
 
@@ -442,7 +441,8 @@ export default class MarkdownEditorToolbar extends Vue {
   }
 
   async created(): Promise<void> {
-    const languagesYaml = await rp.get('https://raw.githubusercontent.com/github/linguist/master/lib/linguist/languages.yml');
+    const response = await this.$axios.get('https://raw.githubusercontent.com/github/linguist/master/lib/linguist/languages.yml');
+    const languagesYaml = response.data;
     const languages = yaml.safeLoad(languagesYaml);
     const names: string[] = Object.keys(languages);
     const aliases: string[] = Object.values(languages)
