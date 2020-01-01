@@ -44,9 +44,6 @@ jobs:
           paths:
             - ~/.cache/yarn
       - run:
-          name: Install JUnit Coverage Reporter
-          command: yarn add -D jest-junit
-      - run:
           name: Run Unit Tests with JUnit as Reporter
           command: yarn test:unit --ci --runInBand --reporters=default --reporters=jest-junit
           environment:

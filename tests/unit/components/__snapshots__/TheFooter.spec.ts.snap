@@ -4,7 +4,7 @@ exports[`TheFooter matches snapshot 1`] = `
 <v-footer-stub height="auto" tag="div" tile="true" absolute="true" app="true" padless="true">
   <v-spacer-stub></v-spacer-stub>
   <v-col-stub tag="div" class="text-center v-footer--padless">
-    Copyright © 2019
+    Copyright © 2020
     <a href="https://github.com/paul-soporan" class="white--text"><strong>Paul Soporan</strong></a></v-col-stub>
   <v-col-stub tag="div" class="text-center v-footer--padless">
     Released under the

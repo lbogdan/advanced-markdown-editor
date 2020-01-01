@@ -23,6 +23,9 @@ yarn-error.log*
 *.sln
 *.sw?
 
+# JUnit Coverage Report for Jest
+junit.xml
+
 # Local Netlify folder
 .netlify
 
