@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "workspaces": [
+    "generate-link-previews"
+  ],
+  "scripts": {
+    "postinstall": "yarn workspaces run build"
+  },
+  "resolutions": {
+    "@types/node": "12.12.22"
+  }
+}

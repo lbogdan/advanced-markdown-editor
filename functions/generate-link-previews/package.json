@@ -1,0 +1,25 @@
+{
+  "name": "generate-link-previews",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "tsc"
+  },
+  "description": "Netlify Function that generates Link Previews",
+  "main": "generate-link-previews.js",
+  "author": "Paul Soporan",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.39",
+    "@types/cheerio": "^0.22.15",
+    "typescript": "^3.7.4"
+  },
+  "dependencies": {
+    "aws-lambda": "^1.0.4",
+    "axios": "^0.19.0",
+    "cheerio": "^1.0.0-rc.3"
+  },
+  "resolutions": {
+    "@types/node": "12.12.22"
+  }
+}
