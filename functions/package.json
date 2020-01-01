@@ -1,8 +1,10 @@
 {
   "private": true,
-  "workspaces": [
-    "generate-link-previews"
-  ],
+  "workspaces": {
+    "packages": [
+      "generate-link-previews"
+    ]
+  },
   "scripts": {
     "postinstall": "yarn workspaces run build"
   },

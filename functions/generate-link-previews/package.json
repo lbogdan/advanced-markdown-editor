@@ -2,6 +2,16 @@
   "name": "generate-link-previews",
   "version": "0.1.0",
   "private": true,
+  "workspaces": {
+    "nohoist": [
+      "aws-lambda",
+      "aws-lambda/**",
+      "axios",
+      "axios/**",
+      "cheerio",
+      "cheerio/**"
+    ]
+  },
   "scripts": {
     "build": "tsc"
   },
