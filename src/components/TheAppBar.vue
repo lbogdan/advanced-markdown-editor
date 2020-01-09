@@ -85,7 +85,11 @@
               <v-icon>mdi-file-download</v-icon>
             </v-btn>
           </template>
-          <span>Download File</span>
+          <div class="text-center">
+            Download File
+            <br>
+            (Ctrl + S)
+          </div>
         </v-tooltip>
       </template>
       <v-card>

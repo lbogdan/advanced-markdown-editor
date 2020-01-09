@@ -10,6 +10,7 @@
       <a
         class="white--text"
         href="https://github.com/paul-soporan"
+        target="_blank"
       >
         <strong>Paul Soporan</strong>
       </a>
@@ -19,6 +20,7 @@
       <a
         class="white--text"
         href="https://github.com/paul-soporan/advanced-markdown-editor/blob/master/LICENSE"
+        target="_blank"
       >
         <strong>MIT License</strong>
       </a>
