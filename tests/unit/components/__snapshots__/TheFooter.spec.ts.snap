@@ -5,10 +5,10 @@ exports[`TheFooter matches snapshot 1`] = `
   <v-spacer-stub></v-spacer-stub>
   <v-col-stub tag="div" class="text-center v-footer--padless">
     Copyright © 2020
-    <a href="https://github.com/paul-soporan" class="white--text"><strong>Paul Soporan</strong></a></v-col-stub>
+    <a href="https://github.com/paul-soporan" target="_blank" class="white--text"><strong>Paul Soporan</strong></a></v-col-stub>
   <v-col-stub tag="div" class="text-center v-footer--padless">
     Released under the
-    <a href="https://github.com/paul-soporan/advanced-markdown-editor/blob/master/LICENSE" class="white--text"><strong>MIT License</strong></a></v-col-stub>
+    <a href="https://github.com/paul-soporan/advanced-markdown-editor/blob/master/LICENSE" target="_blank" class="white--text"><strong>MIT License</strong></a></v-col-stub>
   <v-spacer-stub></v-spacer-stub>
 </v-footer-stub>
 `;
