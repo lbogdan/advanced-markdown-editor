@@ -26,7 +26,6 @@ module.exports = {
   chainWebpack: (config) => {
     config.plugin('fork-ts-checker').tap((options) => {
       options[0].memoryLimit = 3072;
-      console.log(options);
       return options;
     });
   },
